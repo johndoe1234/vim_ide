@@ -169,9 +169,11 @@ nnoremap <silent> <F9> :TagbarToggle<CR>
 
 " configure tags - add additional tags here or comment out not-used ones
 set tags+=c:\tags\cpp
+set tags+=OAMtags
 " build tags of your own project with Ctrl-F12
-map <C-F12> :!ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
-map <C-F11> :!cscope -b -R<CR>
+map <C-F12> :silent !ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
+map <C-F11> :silent !cscope -b -R<CR>
+map <C-F10> :silent !ctags -R -L ctags_includes --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q -f OAMtags<CR>
 
 " OmniCppComplete
 let OmniCpp_NamespaceSearch = 1
@@ -202,3 +204,4 @@ set guioptions-=l
 set guioptions-=r
 set guioptions-=T
 let g:LustyJugglerSuppressRubyWarning = 1
+
