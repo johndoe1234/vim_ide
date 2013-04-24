@@ -22,6 +22,7 @@ endif
 if has("autocmd")
   autocmd! bufwritepost vimrc source $VIM/vimrc
   autocmd! bufwritepost .vimrc source $VIM/vimrc
+  autocmd BufRead *.xml :% !xmllint.exe % --format
   "autocmd! bufwritepost *.cpp silent! execute '!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q'
   "autocmd! bufwritepost *.cxx silent! execute '!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q'
   "autocmd! bufwritepost *.c silent! execute '!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q'
@@ -119,6 +120,10 @@ inoremap kk <ESC>l
 
 "create new vertical split window and move to it
 nnoremap <leader>w <C-w>v<C-w>l
+
+"copying to windows copy/paste buffer
+nnoremap <leader>yw "*yaw
+nnoremap <leader>yy "*yyy
 
 "moving between windows
 nnoremap <C-h> <C-w>h
