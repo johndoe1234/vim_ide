@@ -210,3 +210,34 @@ set guioptions-=r
 set guioptions-=T
 let g:LustyJugglerSuppressRubyWarning = 1
 
+function! FormatCpp()
+    "removing white space on the end of the lines
+    silent! %s/\([(){};]\)\s\+$/\1/
+    silent! %s/\(\S\)\s\+$/\1/
+
+    "removing whitespace  smth     , -> smth,
+    "(  smth -> (smth
+    "smth   ) -> smt)
+    silent! %s/\s\+\([),]\)/\1/
+    silent! %s/\([(]\)\s\+/\1/
+
+    "removing whitespace  ,smth -> , smth
+    silent! %s/,\(\w\)/, \1/
+
+    "convert something==something -> something == something
+    silent! %s/\(\S\)\([=!>+<]\{1\}=\)/\1 \2/
+    silent! %s/\([=!>+<]\{1\}=\)\(\S\)/\1 \2/
+
+    "removing whitspace from ==
+    silent! %s/\s\{2,}\([=!>+<]=\)/ \1/
+    silent! %s/\([=!>+<]=\)\s\{2,}/\1 /
+
+    "converting  smth     = -> smth =
+    silent! %s/\s\{2,\}\([=<>]\)/ \1/
+    silent! %s/\([=<>]\)\s\{2,\}/\1 /
+
+    "formatting
+    silent! normal ggVG=
+
+    silent! :w
+endfunction
