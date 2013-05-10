@@ -39,6 +39,7 @@ set undodir=~/.vimundo
 filetype plugin indent on
 
 let s:ruby_path = 'C:\Ruby192\bin'
+set wildignore+=*.xml,*.obj,*.log,*.rsp
 
 "remap leader from \ to ,
 let mapleader = ","
