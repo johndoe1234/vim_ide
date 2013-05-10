@@ -23,8 +23,8 @@ if has("autocmd")
   autocmd! bufwritepost vimrc source $VIM/vimrc
   autocmd! bufwritepost .vimrc source $VIM/vimrc
   autocmd BufRead *.xml :% !xmllint.exe % --format
-  autocmd BufRead *.cpp :call FormatCpp()
-  autocmd BufRead *.h :call FormatCpp()
+  "autocmd BufRead *.cpp :call FormatCpp()
+  "autocmd BufRead *.h :call FormatCpp()
   "autocmd! bufwritepost *.cpp silent! execute '!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q'
   "autocmd! bufwritepost *.cxx silent! execute '!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q'
   "autocmd! bufwritepost *.c silent! execute '!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q'
@@ -38,6 +38,7 @@ set undodir=~/.vimundo
 
 filetype plugin indent on
 
+let s:ruby_path = 'C:\Ruby192\bin'
 
 "remap leader from \ to ,
 let mapleader = ","
@@ -119,6 +120,8 @@ au FocusLost * :wa
 "exiting insert mode with jj
 inoremap jj <ESC>l
 inoremap kk <ESC>l
+
+nnoremap <leader>f :call FormatCpp()<CR><CR>
 
 "create new vertical split window and move to it
 nnoremap <leader>w <C-w>v<C-w>l
