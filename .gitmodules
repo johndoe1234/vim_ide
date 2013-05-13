@@ -37,3 +37,9 @@
 [submodule "bundle/commandt"]
 	path = bundle/commandt
 	url = https://github.com/wincent/Command-T.git
+[submodule "bundle/fuzzyfinder"]
+	path = bundle/fuzzyfinder
+	url = https://github.com/vim-scripts/FuzzyFinder.git
+[submodule "bundle/l9"]
+	path = bundle/l9
+	url = https://github.com/vim-scripts/L9.git

@@ -122,7 +122,11 @@ au FocusLost * :wa
 inoremap jj <ESC>l
 inoremap kk <ESC>l
 
-nnoremap <leader>f :call FormatCpp()<CR><CR>
+nnoremap <leader>fo :call FormatCpp()<CR><CR>
+nnoremap <leader>ff :FufCoverageFile<CR>
+nnoremap <leader>fl :FufLine<CR>
+nnoremap <leader>fb :FufBuffer<CR>
+nnoremap <leader>ft :FufTag<CR>
 
 "create new vertical split window and move to it
 nnoremap <leader>w <C-w>v<C-w>l
